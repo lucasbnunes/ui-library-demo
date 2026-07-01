@@ -12,6 +12,9 @@
       },
       "type-check": {
         "run": "npx tsc --noEmit -p tsconfig.app.json && npx tsc --noEmit -p tsconfig.node.json"
+      },
+      "test-related": {
+        "run": "npm run test:related {staged_files}"
       }
     }
   },
