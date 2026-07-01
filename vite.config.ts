@@ -5,7 +5,7 @@ import babel from "@rolldown/plugin-babel";
 import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
-import path from "node:path";
+import path, { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
 import { playwright } from "@vitest/browser-playwright";
@@ -23,6 +23,13 @@ export default defineConfig({
     }),
     tailwindcss(),
   ],
+  build: {
+    lib: {
+      entry: resolve(__dirname, "lib/main.ts"),
+      formats: ["es"],
+    },
+    copyPublicDir: false,
+  },
   test: {
     projects: [
       {
