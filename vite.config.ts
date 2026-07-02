@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 import react, { reactCompilerPreset } from "@vitejs/plugin-react";
 import babel from "@rolldown/plugin-babel";
 import tailwindcss from "@tailwindcss/vite";
+import dts from "vite-plugin-dts";
 
 // https://vite.dev/config/
 import path, { resolve } from "node:path";
@@ -22,6 +23,10 @@ export default defineConfig({
       presets: [reactCompilerPreset()],
     }),
     tailwindcss(),
+    dts({
+      include: ["lib"],
+      tsconfigPath: resolve(__dirname, "tsconfig.lib.json"),
+    }),
   ],
   build: {
     lib: {
