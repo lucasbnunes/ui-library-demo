@@ -28,6 +28,11 @@ export default defineConfig({
       tsconfigPath: resolve(__dirname, "tsconfig.lib.json"),
     }),
   ],
+  resolve: {
+    alias: {
+      "@lib": path.resolve(__dirname, "./lib"),
+    },
+  },
   build: {
     lib: {
       entry: resolve(__dirname, "lib/main.ts"),
