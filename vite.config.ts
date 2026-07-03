@@ -1,7 +1,6 @@
 /// <reference types="vitest/config" />
 import { defineConfig } from "vite";
-import react, { reactCompilerPreset } from "@vitejs/plugin-react";
-import babel from "@rolldown/plugin-babel";
+import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import dts from "vite-plugin-dts";
 
@@ -19,9 +18,6 @@ const dirname =
 export default defineConfig({
   plugins: [
     react(),
-    babel({
-      presets: [reactCompilerPreset()],
-    }),
     tailwindcss(),
     dts({
       include: ["lib"],
@@ -40,7 +36,7 @@ export default defineConfig({
     },
     copyPublicDir: false,
     rolldownOptions: {
-      external: ["react", "react-dom"],
+      external: ["react", "react-dom", "react/jsx-runtime"],
       output: {
         entryFileNames: "[name].js",
       },
