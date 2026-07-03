@@ -36,6 +36,9 @@ export default defineConfig({
     copyPublicDir: false,
     rolldownOptions: {
       external: ["react", "react-dom"],
+      output: {
+        entryFileNames: "[name].js",
+      },
     },
   },
   test: {
