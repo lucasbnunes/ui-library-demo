@@ -34,6 +34,9 @@ export default defineConfig({
       formats: ["es"],
     },
     copyPublicDir: false,
+    rolldownOptions: {
+      external: ["react", "react-dom"],
+    },
   },
   test: {
     projects: [
