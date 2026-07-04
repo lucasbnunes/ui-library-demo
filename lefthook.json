@@ -8,7 +8,7 @@
         "stage_fixed": true
       },
       "lint": {
-        "run": "npm run lint {staged_files}",
+        "run": "npm run lint -- --fix {staged_files}",
         "glob": ["*.{js,jsx,ts,tsx}"]
       },
       "type-check": {
