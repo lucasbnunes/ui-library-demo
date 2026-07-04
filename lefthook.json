@@ -8,13 +8,16 @@
         "stage_fixed": true
       },
       "lint": {
-        "run": "npm run lint {staged_files}"
+        "run": "npm run lint {staged_files}",
+        "glob": ["*.{js,jsx,ts,tsx}"]
       },
       "type-check": {
-        "run": "npx tsc --noEmit -p ./tsconfig.lib.json && npx tsc --noEmit -p tsconfig.node.json"
+        "run": "npx tsc --noEmit -p ./tsconfig.lib.json && npx tsc --noEmit -p tsconfig.node.json",
+        "glob": ["*.{ts,tsx}"]
       },
       "test-related": {
-        "run": "npm run test:related {staged_files}"
+        "run": "npm run test:related {staged_files}",
+        "glob": ["*.{js,jsx,ts,tsx}"]
       }
     }
   },
