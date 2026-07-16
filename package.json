@@ -1,19 +1,20 @@
 {
-  "name": "ui-library-demo",
-  "private": true,
+  "name": "@lucasbnunes/ui-library-demo",
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b ./tsconfig.lib.json && vite build",
     "lint": "eslint",
     "preview": "vite preview",
-    "prepare": "if [ \"$CI\" != \"true\" ]; then lefthook install; fi",
+    "prepare": "lefthook install",
     "test:unit": "vitest --project unit",
     "test:related": "vitest related --run --passWithNoTests --project unit",
     "test:storybook": "vitest --project storybook",
