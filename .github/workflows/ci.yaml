@@ -9,24 +9,20 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     container:
-      image: node:20
+      image: node:24
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          node-version: 20
       - run: npm ci
       - run: npm run lint .
 
   test:
     runs-on: ubuntu-latest
     container:
-      image: node:20
+      image: node:24
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          node-version: 20
       - run: npm ci
       - run: npm run test:unit
       - run: npm run test:storybook
@@ -34,23 +30,19 @@ jobs:
   format:
     runs-on: ubuntu-latest
     container:
-      image: node:20
+      image: node:24
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          node-version: 20
       - run: npm ci
       - run: npm run format .
 
   build:
     runs-on: ubuntu-latest
     container:
-      image: node:20
+      image: node:24
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          node-version: 20
       - run: npm ci
       - run: npm run build
