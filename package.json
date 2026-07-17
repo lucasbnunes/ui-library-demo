@@ -14,7 +14,6 @@
     "build": "tsc -b ./tsconfig.lib.json && vite build",
     "lint": "eslint",
     "preview": "vite preview",
-    "prepare": "lefthook install",
     "test:unit": "vitest --project unit",
     "test:related": "vitest related --run --passWithNoTests --project unit",
     "test:storybook": "vitest --project storybook",
