@@ -10,15 +10,13 @@ permissions:
 
 jobs:
   checks:
-    uses: ./.github/workflows/checks.yml
+    uses: ./.github/workflows/checks.yaml
 
   release:
     needs: checks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-        with:
-          fetch-depth: 0 # changesets needs full git history to correctly diff against baseBranch
 
       - uses: actions/setup-node@v7
         with:
