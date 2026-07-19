@@ -56,6 +56,17 @@ Use `cn()` from `lib/utils/cn.ts` (clsx + tailwind-merge) for class merging.
 - `@typescript-eslint/consistent-type-imports` enforced with `inline-type-imports` style
 - Import type syntax: `import { type Foo } from "..."` (not `import type { Foo }`)
 
+## Changesets
+
+Versioning via `@changesets/cli`. Workflow:
+
+1. Run `npx changeset` to create a changeset file (select bump type, add a summary).
+2. Commit the generated `.changeset/*.md` with your feature commit.
+3. CI auto-creates a "Version Packages" PR on push to `main`.
+4. Merging that PR publishes to npm (`npx changeset publish`).
+
+Config: `commit: false` (you commit the changeset file yourself), `access: restricted`.
+
 ## Commits
 
 Conventional commits enforced via commitlint + lefthook commit-msg hook. Format: `type(scope): description`.
