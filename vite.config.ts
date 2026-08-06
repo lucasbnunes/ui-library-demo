@@ -1,5 +1,5 @@
 /// <reference types="vitest/config" />
-import { defineConfig } from "vite";
+import { defineConfig, esmExternalRequirePlugin } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import dts from "vite-plugin-dts";
@@ -23,6 +23,13 @@ export default defineConfig({
       include: ["lib"],
       tsconfigPath: resolve(__dirname, "tsconfig.lib.json"),
     }),
+    // Convert `require("react")` calls from bundled CJS deps (e.g.
+    // @base-ui/react's use-sync-external-store) into ESM imports. Without
+    // this, rolldown leaves a runtime `require` fallback that throws in
+    // browsers, which have no `require` function.
+    esmExternalRequirePlugin({
+      external: ["react", "react-dom", "react/jsx-runtime", "react-dom/client"],
+    }),
   ],
   resolve: {
     alias: {
@@ -36,7 +43,6 @@ export default defineConfig({
     },
     copyPublicDir: false,
     rolldownOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime"],
       output: {
         entryFileNames: "[name].js",
       },
